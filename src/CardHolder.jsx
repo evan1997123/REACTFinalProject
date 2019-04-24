@@ -1,21 +1,25 @@
 import React from "react";
 import Data from "./Data";
-import Card from "./Card";
+import MyCard from "./MyCard.jsx"; 
+import './custom.css'
 
 class CardHolder extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        cards: []
+        cards: Data.counselors
       }
     }
 
     render() {
         return (
             <div>
-                <h2>Meet the Counselors!</h2>
-                {Data.counselors.map(counselor => (
-                <Card counselor={counselor} />))}
+                <h2>Meet the Counselors! Boo</h2>
+                <div className="rows">
+                {this.state.cards.map(counselor => (
+                <MyCard counselor={counselor} key={counselor.id}/>))}
+                </div>
+                
             </div>
         );
     }

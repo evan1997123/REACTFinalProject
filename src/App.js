@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Card from './Card';
 import CardHolder from "./CardHolder";
 import logo from './logo.svg';
 import './App.css';
