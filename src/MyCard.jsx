@@ -8,18 +8,15 @@ class MyCard extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-          counselor: this.props.counselor
+          counselor: this.props.counselor,
       }
     }
 
-    async getBio() {
-        let response = await fetch(this.state.counselor.linkedinurl);
-
-    }
 
     render() {
         let {counselor} = this.state;
         let specialty;
+
         if (counselor.specialties.length === 0) {
             specialty = <ListGroupItem>Specialty: None</ListGroupItem>
         } else if (counselor.specialties.length === 1) {
