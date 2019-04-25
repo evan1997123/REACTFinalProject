@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CardHolder from "./CardHolder";
-import logo from './logo.svg';
+import PugHolder from "./PugHolder";
 import './App.css';
 import { Route, Link } from "react-router-dom";
 
@@ -28,8 +28,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Route path="/dogs" component={CardHolder} />
-        <Link to="/dogs">See Dogs</Link>
+        <Route path="/counselors" component={CardHolder} />
+        <Route path="/pugs" component={PugHolder} />
+        <Link to="/pugs">See pugs</Link>
+        <Link to="/counselors">See Counselors</Link>
       </div>
     );
   }
