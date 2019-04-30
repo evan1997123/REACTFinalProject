@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import CardHolder from "./CardHolder";
+import React from 'react';
 import PugHolder from "./PugHolder";
 import './App.css';
 import { Route, Link } from "react-router-dom";
@@ -7,8 +6,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import SymptomsHolder from "./SymptomsHolder";
+import CardHolder from './CardHolder';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div>
