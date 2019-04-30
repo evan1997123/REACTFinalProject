@@ -10,47 +10,52 @@ class PugHolder extends React.Component {
         currentList:[],
         amount: 5
       }
+      this.updatePugs = this.updatePugs.bind(this);
+      this.getDogs = this.getDogs.bind(this);
     }
 
-    async getDogs() {
-      console.log("Dogs Come");
-      let response = await fetch("https://acoustic-bit.glitch.me/pug");
-      let text = await response.json();
-      this.setState({
-          pugList: [...new Set(text.pugs)],
-          currentList: [...new Set(text.pugs)].slice(0,this.state.amount)
-      });    
+  async getDogs() {
+    let response = await fetch("https://acoustic-bit.glitch.me/pug");
+    let text = await response.json();
+    let temp = this.state.pugList.concat(text.pugs).filter(this.uniq);
+    this.setState({
+      pugList: temp
+  });
+  }
+
+  uniq(value,index,self) {
+    return self.indexOf(value)===index;
   }
 
   componentDidMount()
   {
     this.getDogs();
-    this.refs.iScroll.addEventListener("scroll", () => {
-      if (this.refs.iScroll.scrollTop + this.refs.iScroll.clientHeight >= this.refs.iScroll.scrollHeight)
-        this.updatePugs();
-        console.log("updated");
-        console.log(this.state.currentList)
+    document.addEventListener("scroll", () => {
+        const wrappedElement = document.getElementById('header');
+      if (this.isBottom(wrappedElement)) {
+        setTimeout(this.getDogs, 100);
+      }
       }
     );
-    console.log("mounted");
+  }
+  
+  isBottom(el) {
+    return el.getBoundingClientRect().bottom <= window.innerHeight;
   }
   
   updatePugs (){
-    console.log('header bottom reached');
-    if(this.state.amount + 2 >= this.pugList.length)
-    {
-      this.setState(prevState => ({
-        currentList: [...prevState.currentList,...prevState.pugList.slice(prevState.amount,prevState.amount+2)],
-        amount: prevState.amount + 2
-      }));
-    }
+      this.getDogs();
   }
 
   render() {
       return (
-          <div id='header' ref="iScroll">
+          <div id='header' ref="iScroll" className="pugBackground">
+            <div className="title">Pugs for Pawsitivity</div>
+
+            <div className="subtext">
               <h2>Meet the Pugs! Arf!</h2>
-              {this.state.currentList.map((pugURL,i) => (
+            </div>
+              {this.state.pugList.map((pugURL,i) => (
               <PugCard pugURL={pugURL} key={i} number={i}/>))}             
           </div>
       );

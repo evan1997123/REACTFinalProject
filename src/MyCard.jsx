@@ -33,7 +33,7 @@ class MyCard extends React.Component {
             specialty = <ListGroupItem>{temp}</ListGroupItem>
         }
         return (
-            <div>
+            <div className="child">
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={counselor.pictureurl} />
             <Card.Body>

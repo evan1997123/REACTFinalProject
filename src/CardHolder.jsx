@@ -17,8 +17,8 @@ class CardHolder extends React.Component {
             <div>
                 <h2>Meet the Counselors!</h2>               
                 <div className="rows">
-                {this.state.cards.map(counselor => (
-                <MyCard counselor={counselor} key={counselor.id}/>))}
+                  {this.state.cards.map(counselor => (
+                  <MyCard counselor={counselor} key={counselor.id}/>))}
                 </div> 
             </div>
         );

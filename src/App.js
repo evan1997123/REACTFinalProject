@@ -3,35 +3,38 @@ import CardHolder from "./CardHolder";
 import PugHolder from "./PugHolder";
 import './App.css';
 import { Route, Link } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import SymptomsHolder from "./SymptomsHolder";
 
 class App extends Component {
-  // render() {
-  //   return (
-  //     <div className="App">
-  //       <header className="App-header">
-  //         <img src={logo} className="App-logo" alt="logo" />
-  //         <p>
-  //           Edit <code>src/App.js</code> and save to reload.
-  //         </p>
-  //         <a
-  //           className="App-link"
-  //           href="https://reactjs.org"
-  //           target="_blank"
-  //           rel="noopener noreferrer"
-  //         >
-  //           Learn React
-  //         </a>
-  //       </header>
-  //     </div>
-  //   );
-  // }
   render() {
     return (
       <div>
+        <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="#home">Big Daddy Andy's Website</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+        <Nav.Link href="/pugs">See Pugs</Nav.Link>
+        <Nav.Link href="/counselors">See Counselors</Nav.Link>
+        <Nav.Link href="/symptoms">See Symptoms</Nav.Link>
+        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        </NavDropdown>
+        </Nav>
+        </Navbar.Collapse>
+        </Navbar>
+        {/* <Link to="/pugs">See Pugs</Link> */}
+        {/* <Link to="/counselors">See Counselors</Link> */}
         <Route path="/counselors" component={CardHolder} />
         <Route path="/pugs" component={PugHolder} />
-        <Link to="/pugs">See pugs</Link>
-        <Link to="/counselors">See Counselors</Link>
+        <Route path="/symptoms" component={SymptomsHolder}/>
       </div>
     );
   }
