@@ -32,9 +32,9 @@ class App extends React.Component {
         </Navbar>
         {/* <Link to="/pugs">See Pugs</Link> */}
         {/* <Link to="/counselors">See Counselors</Link> */}
-        <div className="home">
+        {/* <div className="home">
           <img src="http://getwallpapers.com/wallpaper/full/d/6/c/309423.jpg" />
-        </div>
+        </div> */}
         <Route path="/counselors" component={CardHolder} />
         <Route path="/pugs" component={PugHolder} />
         <Route path="/symptoms" component={SymptomsHolder}/>
