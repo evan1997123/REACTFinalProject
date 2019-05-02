@@ -31,3 +31,9 @@
 .pugBackground { 
    background-color: #9ee5e3;
  }
+
+ .home {
+    display: flex;
+    height: 100%;
+    width: 100%
+ }
