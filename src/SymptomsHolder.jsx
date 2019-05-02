@@ -1,6 +1,8 @@
 import React from "react";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import Button from "react-bootstrap/Button";
+import Technique from './Technique';
+import TechniqueData from './TechniqueData';
 
 class SymptomsHolder extends React.Component {
 
@@ -14,7 +16,7 @@ class SymptomsHolder extends React.Component {
 
     displayTechnique(e) {
         let symptom = e.target.id; // loneliness
-        console.log(symptom);
+        // console.log(symptom);
         let copy = this.state.symptoms; // copy of array
         for (var key in copy) {
             copy[key]=false;
@@ -25,24 +27,30 @@ class SymptomsHolder extends React.Component {
             // display corresponding technique
             symptoms: copy
         }));
-        console.log(this.state.symptoms);
+        // console.log(this.state.symptoms);
     }
 
     render() {
         // iterate through dictionary, find key corresponding to true value
         // if lonliness = true, display lonliness component
-        let specific = null;
+        let technique = null;
+        let specific = null; // specific = the button user clicked on
         let copy = this.state.symptoms; // copy of array
         for (var key in copy) {
-            if(copy[key]==true)
-            {
+            if(copy[key]==true) {
                 specific = key;
             }
-        // Do stuff. ex: console.log(dict[key])
-        }      
-        if(specific) {
-            
+        }     
+        if (specific) {
+            console.log(specific);
+            let data = TechniqueData.lonliness;
+            technique = (
+                <div>
+                    <Technique question={data.question} strategy={data.strategy} />
+                </div>
+            );
         }
+
         return(
             <div>
                 <ButtonToolbar>
@@ -56,7 +64,7 @@ class SymptomsHolder extends React.Component {
                 <Button variant="dark" size="lg">Dark</Button>
                 <Button variant="link" size="lg">Link</Button>
                 </ButtonToolbar>
-
+                {technique}
             </div>
         )
     }
