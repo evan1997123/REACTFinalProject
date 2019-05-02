@@ -9,7 +9,7 @@ class SymptomsHolder extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            symptoms: {loneliness: false, stress: false, anxiety: false}
+            symptoms: {loneliness: false, stress: false, anxiety: false, depression: false, insomnia: false}
         }
         this.displayTechnique = this.displayTechnique.bind(this); // binding
     }
@@ -33,7 +33,7 @@ class SymptomsHolder extends React.Component {
     render() {
         // iterate through dictionary, find key corresponding to true value
         // if lonliness = true, display lonliness component
-        let technique = null;
+        let technique;
         let specific = null; // specific = the button user clicked on
         let copy = this.state.symptoms; // copy of array
         for (var key in copy) {
@@ -42,8 +42,9 @@ class SymptomsHolder extends React.Component {
             }
         }     
         if (specific) {
-            console.log(specific);
-            let data = TechniqueData.lonliness;
+            // console.log(specific);
+            let data = TechniqueData[specific]
+            console.log(data)
             technique = (
                 <div>
                     <Technique question={data.question} strategy={data.strategy} />
@@ -54,15 +55,11 @@ class SymptomsHolder extends React.Component {
         return(
             <div>
                 <ButtonToolbar>
-                <Button variant="primary" size="lg" id="loneliness" onClick={this.displayTechnique}>Lonliness</Button>
-                <Button variant="secondary" size="lg">Stress</Button>
-                <Button variant="success" size="lg">Anxiety</Button>
-                <Button variant="warning" size="lg">Depression</Button>
-                <Button variant="danger" size="lg">Insomnia</Button>
-                <Button variant="info" size="lg">Info</Button>
-                <Button variant="light" size="lg">Light</Button>
-                <Button variant="dark" size="lg">Dark</Button>
-                <Button variant="link" size="lg">Link</Button>
+                <Button variant="primary" size="lg" id="loneliness" onClick={this.displayTechnique}>Loneliness</Button>
+                <Button variant="secondary" size="lg" id="stress" onClick={this.displayTechnique}>Stress</Button>
+                <Button variant="success" size="lg" id="anxiety" onClick={this.displayTechnique}>Anxiety</Button>
+                <Button variant="warning" size="lg" id="depression" onClick={this.displayTechnique}>Depression</Button>
+                <Button variant="danger" size="lg" id="insomnia" onClick={this.displayTechnique}>Insomnia</Button>
                 </ButtonToolbar>
                 {technique}
             </div>
