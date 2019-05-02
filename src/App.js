@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div>
         <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Big Daddy Andy's Website</Navbar.Brand>
+        <Navbar.Brand href="#home">Andy's Website</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
