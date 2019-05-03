@@ -8,7 +8,7 @@
    flex: 1 0 33%;
 }
 .title { color: #1ebbff; font-family: "Lobster", serif; font-size: 80px; line-height: 160px;
-    font-weight: normal; margin-bottom: 30px; margin-top: 40px; text-align: center; }
+    font-weight: normal; margin-bottom: 30px; text-align: center; }
 
 .cards {
    text-align: center;
@@ -16,6 +16,11 @@
    width: 100%;
    justify-content: center;
    margin-bottom: 10px
+}
+
+.center {
+   text-align: center;
+
 }
 
 .ImageBorder
@@ -30,10 +35,19 @@
 
 .pugBackground { 
    background-color: #9ee5e3;
- }
+}
+ 
+.counselorBackground { 
+   background-color: #ffd1dc;
+}
 
- .home {
-    display: flex;
-    height: 100%;
-    width: 100%
+
+.home {
+   position: fixed;
+   min-width: 100%;
+   min-height: 100%;
+}
+
+.navbar-header {
+   background-color: #b19cd9;
  }

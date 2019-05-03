@@ -7,13 +7,14 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import SymptomsHolder from "./SymptomsHolder";
 import CardHolder from './CardHolder';
+import Home from './Home';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Andy's Website</Navbar.Brand>
+      <div className="navbar-header">
+        <Navbar expand="lg">
+        <Navbar.Brand href="/">Andy's Website</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
@@ -32,9 +33,8 @@ class App extends React.Component {
         </Navbar>
         {/* <Link to="/pugs">See Pugs</Link> */}
         {/* <Link to="/counselors">See Counselors</Link> */}
-        {/* <div className="home">
-          <img src="http://getwallpapers.com/wallpaper/full/d/6/c/309423.jpg" />
-        </div> */}
+        
+        <Route path="/" exact component={Home} ></Route>
         <Route path="/counselors" component={CardHolder} />
         <Route path="/pugs" component={PugHolder} />
         <Route path="/symptoms" component={SymptomsHolder}/>
