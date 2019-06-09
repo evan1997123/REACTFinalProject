@@ -7,19 +7,22 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import SymptomsHolder from "./SymptomsHolder";
 import CardHolder from './CardHolder';
+import TasklistHolder from './TasklistHolder';
+
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Andy's Website</Navbar.Brand>
+        <Navbar.Brand href="/">Andy's Website</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
         <Nav.Link href="/pugs">See Pugs</Nav.Link>
         <Nav.Link href="/counselors">See Counselors</Nav.Link>
         <Nav.Link href="/symptoms">See Symptoms</Nav.Link>
+        <Nav.Link href="/tasklist"> TaskList</Nav.Link>
         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -38,6 +41,8 @@ class App extends React.Component {
         <Route path="/counselors" component={CardHolder} />
         <Route path="/pugs" component={PugHolder} />
         <Route path="/symptoms" component={SymptomsHolder}/>
+        <Route path="/tasklist" component = {TasklistHolder}/>
+        
       </div>
     );
   }
